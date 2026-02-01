@@ -1,6 +1,6 @@
 // app/HomeClient.tsx
 "use client";
-
+import Image from 'next/image';
 import React, { useState, useEffect, useRef } from 'react';
 
 // --- Preloader Component ---
@@ -95,18 +95,32 @@ export default function HomeClient({ initialNotes }: { initialNotes: any[] }) {
         <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-[#00A8FF]/5 rounded-full blur-[120px] pointer-events-none"></div>
       </section>
 
-      {/* 2. PROFILE BIO */}
+      {/* 2. PROFILE BIO (UPDATED) */}
       <section className="py-24 px-6 bg-white border-b border-[#2F3640]/5">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <div className="space-y-6">
-            <h2 className="text-[#00A8FF] font-mono text-sm uppercase tracking-[0.3em]">The Designer</h2>
-            <p className="text-xl md:text-2xl leading-relaxed font-sans text-[#2F3640]/90">
-              I am a remote Instructional Designer specializing in technical training.
+        <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
+          
+          <h2 className="text-[#00A8FF] font-mono text-sm uppercase tracking-[0.3em] mb-12">The Designer</h2>
+
+          {/* Circular Profile Image */}
+          <div className="relative w-32 h-32 md:w-40 md:h-40 mb-10 rounded-full overflow-hidden border-[3px] border-[#E1B12C] shadow-2xl shadow-[#E1B12C]/20 group">
+            <Image 
+              src="/Vik_Profile.png" 
+              alt="ScriptedCraft Lead E-Learning Developer"
+              fill
+              className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+              priority
+            />
+          </div>
+
+          {/* Bio Text as Quote - Scaled to match Hero Section */}
+          <div className="max-w-3xl relative">
+            <p className="text-lg md:text-2xl font-serif italic font-light text-[#2F3640] leading-relaxed">
+              <span className="text-[#E1B12C] text-3xl mr-2">“</span>
+              Hi, I'm Vik. I started ScriptedCraft to take the heavy lifting off busy training teams. I focus on understanding your specific goals and delivering custom solutions that slot seamlessly into your workflow.
+              <span className="text-[#E1B12C] text-3xl ml-2">”</span>
             </p>
           </div>
-          <div className="aspect-square md:aspect-video bg-[#F5F6FA] rounded-3xl border border-[#2F3640]/5 flex items-center justify-center p-12 text-center shadow-sm">
-             <span className="text-[#2F3640]/40 italic font-serif text-xl">Architecting Learning Workflows</span>
-          </div>
+
         </div>
       </section>
 
