@@ -86,9 +86,9 @@ export default function HomeClient({ initialNotes }: { initialNotes: any[] }) {
           </h1>
           <div className="max-w-2xl space-y-6">
             <p className="text-lg md:text-2xl font-light text-[#F5F6FA]/80 leading-relaxed font-sans">
-              Elevating Instructional Design through 
-              <span className="text-[#00A8FF] font-medium text-nowrap"> technical precision </span> 
-              and <span className="text-[#E1B12C] font-medium text-nowrap"> creative excellence</span>.
+              Crafting engaging e-learning with 
+              <span className="text-[#00A8FF] font-medium text-nowrap"> real-life scenarios </span> 
+              and <span className="text-[#E1B12C] font-medium text-nowrap"> interactive design</span>.
             </p>
           </div>
         </div>
@@ -99,7 +99,7 @@ export default function HomeClient({ initialNotes }: { initialNotes: any[] }) {
       <section className="py-24 px-6 bg-white border-b border-[#2F3640]/5">
         <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
           
-          <h2 className="text-[#00A8FF] font-mono text-sm uppercase tracking-[0.3em] mb-12">The Designer</h2>
+          <h2 className="text-[#00A8FF] font-mono text-sm uppercase tracking-[0.3em] mb-12">The e-Learning Developer</h2>
 
           {/* Circular Profile Image */}
           <div className="relative w-32 h-32 md:w-40 md:h-40 mb-10 rounded-full overflow-hidden border-[3px] border-[#E1B12C] shadow-2xl shadow-[#E1B12C]/20 group">
