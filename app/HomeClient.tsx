@@ -35,8 +35,6 @@ const tabData = {
 };
 
 export default function HomeClient({ initialNotes }: { initialNotes: any[] }) {
-  const [isFormOpen, setIsFormOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("Rise 360 Courses");
   
@@ -77,50 +75,9 @@ export default function HomeClient({ initialNotes }: { initialNotes: any[] }) {
 
   if (isLoading) return <Preloader />;
 
-  const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Featured Works', href: '#works' },
-    { name: 'Notes', href: '#notes' },
-  ];
-
   return (
-    <main className={`${(isFormOpen || isMenuOpen) ? 'overflow-hidden' : ''} bg-[#F5F6FA] text-[#2F3640] min-h-screen selection:bg-[#E1B12C]/30 scroll-smooth`}>
+    <main className="bg-[#F5F6FA] text-[#2F3640] min-h-screen selection:bg-[#E1B12C]/30 scroll-smooth">
       
-      {/* --- FLOATING NAVBAR --- */}
-      <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-[150] w-[90%] max-w-4xl">
-        <div className="bg-[#2F3640]/80 backdrop-blur-lg border border-white/10 rounded-full px-6 py-3 flex items-center justify-between shadow-2xl">
-          <a href="#home" className="text-xl font-bold tracking-tighter text-[#F5F6FA] font-sans">
-            S<span className="text-[#E1B12C] font-serif italic">C</span><span className="text-[#00A8FF]">.</span>
-          </a>
-
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a key={link.name} href={link.href} className="text-xs uppercase tracking-widest text-[#F5F6FA]/70 hover:text-[#E1B12C] transition-colors font-mono">
-                {link.name}
-              </a>
-            ))}
-          </div>
-
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-[#F5F6FA]">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              {isMenuOpen ? <path d="M18 6L6 18M6 6l12 12"/> : <path d="M4 6h16M4 12h16M4 18h16"/>}
-            </svg>
-          </button>
-        </div>
-
-        {isMenuOpen && (
-          <div className="absolute top-16 left-0 w-full bg-[#2F3640] rounded-[2rem] p-8 md:hidden animate-in fade-in shadow-2xl border border-white/5">
-            <div className="flex flex-col gap-6">
-              {navLinks.map((link) => (
-                <a key={link.name} href={link.href} onClick={() => setIsMenuOpen(false)} className="text-2xl font-serif italic text-[#E1B12C] border-b border-white/5 pb-2">
-                  {link.name}
-                </a>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
-
       {/* 1. HERO SECTION */}
       <section id="home" className="h-[90vh] flex flex-col justify-center px-6 bg-[#2F3640] relative overflow-hidden pt-20">
         <div className="max-w-6xl mx-auto w-full z-10">
@@ -188,7 +145,7 @@ export default function HomeClient({ initialNotes }: { initialNotes: any[] }) {
         </div>
       </section>
 
-      {/* 4. NOTES SECTION - Dynamic Markdown Posts */}
+      {/* 4. NOTES SECTION */}
       <section id="notes" className="py-24 px-6 bg-[#2F3640] text-[#F5F6FA]">
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
@@ -220,28 +177,6 @@ export default function HomeClient({ initialNotes }: { initialNotes: any[] }) {
           </div>
         </div>
       </section>
-
-      {/* 5. FLOATING CONTACT BUTTON */}
-      <button onClick={() => setIsFormOpen(true)} className="fixed bottom-8 right-8 bg-[#E1B12C] text-[#2F3640] px-8 py-4 rounded-full flex items-center gap-3 shadow-2xl hover:scale-105 transition-all z-50 font-bold">
-        Let's Collaborate <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </button>
-
-      {isFormOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#2F3640]/90 backdrop-blur-sm">
-          <div className="bg-[#F5F6FA] w-full max-w-lg rounded-[2.5rem] p-8 md:p-12 relative animate-in zoom-in duration-300 shadow-2xl">
-            <button onClick={() => setIsFormOpen(false)} className="absolute top-8 right-8 text-[#2F3640]/40 hover:text-[#2F3640]">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </button>
-            <h2 className="text-4xl font-serif italic text-[#2F3640] mb-2">Inquiry</h2>
-            <form action="https://formspree.io/f/hello@scriptedcraft.com" method="POST" className="space-y-4 mt-8">
-              <input name="name" required type="text" className="w-full bg-white border border-[#2F3640]/5 rounded-xl px-4 py-3 font-sans" placeholder="Full Name" />
-              <input name="email" required type="email" className="w-full bg-white border border-[#2F3640]/5 rounded-xl px-4 py-3 font-sans" placeholder="Work Email" />
-              <textarea name="message" required rows={4} className="w-full bg-white border border-[#2F3640]/5 rounded-xl px-4 py-3 resize-none font-sans" placeholder="Project Scope"></textarea>
-              <button type="submit" className="w-full bg-[#2F3640] text-[#F5F6FA] py-4 rounded-xl font-bold shadow-lg">Submit Inquiry</button>
-            </form>
-          </div>
-        </div>
-      )}
 
       <footer className="py-12 px-6 bg-[#F5F6FA] text-center text-[#2F3640]/30 font-mono text-[10px] uppercase tracking-[0.5em]">
         © 2026 ScriptedCraft • Built with Next.js

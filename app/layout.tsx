@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+// Import the new GlobalUI component we created in the components folder
+import GlobalUI from "./components/GlobalUI";
 
-// The clean, professional sans-serif for body and technical text
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
 
-// The premium, editorial serif for "Craft" and major headings
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
@@ -29,6 +29,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} antialiased font-sans`}
       >
+        {/* GlobalUI ensures the Navbar and 'Let's Collaborate' button 
+            persist across Home, Repository, and Individual Notes */}
+        <GlobalUI />
+        
         {children}
       </body>
     </html>
