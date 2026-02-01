@@ -6,6 +6,18 @@ import html from 'remark-html';
 
 const notesDirectory = path.join(process.cwd(), 'content/notes');
 
+// Updated Interface to include SEO fields
+export interface NoteData {
+  id: string;
+  title: string;
+  date: string;
+  category: string;
+  excerpt: string;
+  description?: string; // New SEO field
+  keywords?: string;    // New SEO field
+  contentHtml?: string;
+}
+
 export function getSortedNotesData() {
   const fileNames = fs.readdirSync(notesDirectory);
   const allNotesData = fileNames.map((fileName) => {
@@ -16,7 +28,15 @@ export function getSortedNotesData() {
 
     return {
       id,
-      ...(matterResult.data as { date: string; title: string; category: string; excerpt: string }),
+      // Updated type cast to include description and keywords
+      ...(matterResult.data as { 
+        date: string; 
+        title: string; 
+        category: string; 
+        excerpt: string;
+        description?: string;
+        keywords?: string;
+      }),
     };
   });
 
@@ -34,6 +54,14 @@ export async function getNoteData(id: string) {
   return {
     id,
     contentHtml,
-    ...(matterResult.data as { date: string; title: string; category: string }),
+    // Included metadata fields for single-note SEO generation
+    ...(matterResult.data as { 
+      date: string; 
+      title: string; 
+      category: string;
+      excerpt: string;
+      description?: string;
+      keywords?: string;
+    }),
   };
 }
