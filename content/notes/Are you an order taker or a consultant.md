@@ -1,4 +1,3 @@
----
 title: "Instructional Design: Are you an order taker or a consultant?"
 date: "2026-04-05"
 category: "People Management"
@@ -10,17 +9,3 @@ keywords: "instructional design, e-learning, technical training, Camtasia, Artic
 ## Overview
 Introduce the core concept of your note here. Whether it's a deep dive into **Interarch Building Products** or a technical walkthrough of **2D animation** techniques, start with the 'why'.
 
-## Key Insights
-* **Insight One**: Detail your research or design process.
-* **Insight Two**: Connect it back to instructional design principles.
-
-> **Note**: Use blockquotes for important industry definitions or personal reflections on your 2026 goals.
-
-## Technical Execution
-If this post is about **Pine Script** or **Next.js**, include code blocks to demonstrate your "technical precision."
-
-![2](public/images/2.webp)
-
-```pinescript
-// Example Pine Script indicator
-plot(close, color=color.blue)
