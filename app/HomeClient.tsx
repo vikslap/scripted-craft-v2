@@ -82,7 +82,7 @@ export default function HomeClient({ initialNotes }: { initialNotes: any[] }) {
       <section id="home" className="h-[90vh] flex flex-col justify-center px-6 bg-[#2F3640] relative overflow-hidden pt-20">
         <div className="max-w-6xl mx-auto w-full z-10">
           <h1 className="text-5xl md:text-9xl font-bold tracking-tighter mb-8 leading-tight text-[#F5F6FA] font-sans">
-            Scripted<span className="font-serif text-[#E1B12C] italic">Craft™</span><span className="text-[#00A8FF]">.</span>
+            Scripted<span className="font-serif text-[#E1B12C] italic">Craft</span><span className="text-[#00A8FF]">.</span>
           </h1>
           <div className="max-w-2xl space-y-6">
             <p className="text-lg md:text-2xl font-light text-[#F5F6FA]/80 leading-relaxed font-sans">
@@ -193,7 +193,7 @@ export default function HomeClient({ initialNotes }: { initialNotes: any[] }) {
       </section>
 
       <footer className="py-12 px-6 bg-[#F5F6FA] text-center text-[#2F3640]/30 font-mono text-[10px] uppercase tracking-[0.5em]">
-        © 2026 ScriptedCraft • Built with Next.js
+        © 2026 ScriptedCraft™ • Built with Next.js
       </footer>
     </main>
   );
