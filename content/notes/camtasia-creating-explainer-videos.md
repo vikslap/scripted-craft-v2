@@ -21,7 +21,7 @@ If this post is about **Pine Script** or **Next.js**, include code blocks to dem
 
 The image:
 
-![2](public/images/2.webp)
+![2](/images/2.webp)
 
 ```pinescript
 // Example Pine Script indicator

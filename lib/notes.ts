@@ -45,7 +45,9 @@ export function getSortedNotesData() {
 }
 
 export async function getNoteData(id: string) {
-  const fullPath = path.join(notesDirectory, `${id}.md`);
+  // Decode URL-encoded characters (spaces, etc.)
+  const decodedId = decodeURIComponent(id);
+  const fullPath = path.join(notesDirectory, `${decodedId}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const matterResult = matter(fileContents);
   const processedContent = await remark().use(html).process(matterResult.content);
